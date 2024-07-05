@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  padding: 2rem;
+  min-height: 70vh;
+}
+
+.form-builder,
+.form-preview {
+  width: 50%;
+  padding: 1rem;
+}
+
+h1,
+h2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.form-builder {
+  border-right: 1px solid #000000;
+}
