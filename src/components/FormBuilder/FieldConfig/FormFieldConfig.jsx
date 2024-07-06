@@ -1,4 +1,5 @@
-import { FIELD_VALUES } from "../../utils/constant";
+import { FIELD_VALUES } from "../../../utils/constant";
+import FieldOptions from "./FieldOptions";
 import FormValidation from "./FormValidation";
 
 export const fieldTypes = [
@@ -22,6 +23,10 @@ const FormFieldConfig = ({ field, onRemove, onUpdate, index }) => {
     onUpdate({ ...field, validation });
   };
 
+  const handleOptionsChange = (options) => {
+    onUpdate({ ...field, options });
+  };
+
   return (
     <div className="field-config-container">
       <div className="field-config-label">Field - {index + 1}</div>
@@ -40,6 +45,10 @@ const FormFieldConfig = ({ field, onRemove, onUpdate, index }) => {
           placeholder="Label"
         />
       </div>
+      {(field?.type === FIELD_VALUES?.DROPDOWN ||
+        field?.type === FIELD_VALUES?.RADIO) && (
+        <FieldOptions options={field?.options} onChange={handleOptionsChange} />
+      )}
       <FormValidation
         type={field?.type}
         validation={field?.validation}

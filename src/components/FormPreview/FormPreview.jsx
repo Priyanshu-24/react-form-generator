@@ -65,6 +65,19 @@ const FormPreview = () => {
                 onChange={(e) => handleChange(field?.id, e.target.checked)}
               />
             )}
+            {field?.type === FIELD_VALUES?.DROPDOWN && (
+              <select
+                value={formData[field?.id] || ""}
+                onChange={(e) => handleChange(field?.id, e.target.value)}
+              >
+                <option value="">Select</option>
+                {field?.options?.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            )}
             {errors[field?.id] && (
               <div className="error">{errors[field?.id]}</div>
             )}

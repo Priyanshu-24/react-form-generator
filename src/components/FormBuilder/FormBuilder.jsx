@@ -1,5 +1,5 @@
 import { FormContext } from "../../context/FormContext";
-import FormFieldConfig from "./FormFieldConfig";
+import FormFieldConfig from "./FieldConfig/FormFieldConfig";
 import { useContext } from "react";
 
 const FormBuilder = () => {

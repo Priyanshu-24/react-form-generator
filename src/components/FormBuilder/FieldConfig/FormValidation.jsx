@@ -1,4 +1,4 @@
-import { FIELD_VALUES } from "../../utils/constant";
+import { FIELD_VALUES } from "../../../utils/constant";
 
 const FormValidation = ({ validation, onChange, type }) => {
   const handleRequiredChange = (e) => {
