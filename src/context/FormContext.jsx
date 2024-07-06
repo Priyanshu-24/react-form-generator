@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 
+import { FIELD_VALUES } from "../utils/constant";
+
 export const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
@@ -8,7 +10,7 @@ export const FormProvider = ({ children }) => {
   const addField = () => {
     setFields([
       ...fields,
-      { type: "text", label: "", options: [], validations: {} },
+      { type: FIELD_VALUES?.TEXT, label: "", options: [], validations: {} },
     ]);
   };
 
@@ -20,8 +22,16 @@ export const FormProvider = ({ children }) => {
     });
   };
 
+  const updateField = (index, newField) => {
+    const newFields = [...fields];
+    newFields[index] = newField;
+    setFields(newFields);
+  };
+
   return (
-    <FormContext.Provider value={{ fields, addField, removeField }}>
+    <FormContext.Provider
+      value={{ fields, addField, removeField, updateField }}
+    >
       {children}
     </FormContext.Provider>
   );

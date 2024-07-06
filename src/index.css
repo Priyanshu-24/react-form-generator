@@ -26,3 +26,26 @@ h2 {
 .form-builder {
   border-right: 1px solid #000000;
 }
+
+.add-field-btn {
+  background-color: #157ff1;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.field-config-container {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-top: 1rem;
+}
+
+.field-config-label {
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
