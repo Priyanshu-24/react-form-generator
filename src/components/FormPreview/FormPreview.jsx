@@ -44,7 +44,13 @@ const FormPreview = () => {
       <form onSubmit={handleSubmit}>
         {fields?.map((field) => (
           <div key={field?.id} className="field-container">
-            <label>{field?.label}</label>
+            <label
+              className={
+                field?.type === FIELD_VALUES?.CHECKBOX && "inline-label"
+              }
+            >
+              {field?.label}
+            </label>
             {field?.type === FIELD_VALUES?.TEXT && (
               <input
                 type="text"
@@ -77,6 +83,22 @@ const FormPreview = () => {
                   </option>
                 ))}
               </select>
+            )}
+            {field?.type === FIELD_VALUES?.RADIO && (
+              <>
+                {field?.options?.map((option) => (
+                  <div key={option}>
+                    <input
+                      type="radio"
+                      name={field?.label}
+                      value={option}
+                      checked={formData[field?.id] === option}
+                      onChange={(e) => handleChange(field?.id, e.target.value)}
+                    />
+                    <label className="inline-label">{option}</label>
+                  </div>
+                ))}
+              </>
             )}
             {errors[field?.id] && (
               <div className="error">{errors[field?.id]}</div>
