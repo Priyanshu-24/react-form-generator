@@ -6,8 +6,6 @@ const FormBuilder = () => {
   const { fields, addField, removeField, updateField } =
     useContext(FormContext);
 
-  console.log(fields);
-
   return (
     <div className="form-builder">
       <h2>Form Builder</h2>

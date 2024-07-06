@@ -31,14 +31,16 @@ const FormValidation = ({ validation, onChange, type }) => {
 
   return (
     <div className="validation-container">
-      <div className="validation-box">
-        <label>Required</label>
-        <input
-          type="checkbox"
-          checked={validation?.required || false}
-          onChange={handleRequiredChange}
-        />
-      </div>
+      {type !== FIELD_VALUES?.CHECKBOX && (
+        <div className="validation-box">
+          <label>Required</label>
+          <input
+            type="checkbox"
+            checked={validation?.required || false}
+            onChange={handleRequiredChange}
+          />
+        </div>
+      )}
       {(type === FIELD_VALUES?.TEXT || type === FIELD_VALUES?.TEXTAREA) && (
         <div className="min-max-container">
           <div>

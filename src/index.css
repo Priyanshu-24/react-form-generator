@@ -140,3 +140,31 @@ form {
 .main-header {
   margin-top: 1rem;
 }
+
+.error-msg {
+  color: rgb(241, 57, 57);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .form-builder,
+  .form-preview {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .form-builder {
+    border-bottom: 1px solid #000000;
+    border-right: 0;
+  }
+}

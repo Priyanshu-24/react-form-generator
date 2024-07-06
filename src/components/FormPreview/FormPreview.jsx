@@ -104,7 +104,7 @@ const FormPreview = () => {
               </>
             )}
             {errors[field?.id] && (
-              <div className="error">{errors[field?.id]}</div>
+              <div className="error-msg">{errors[field?.id]}</div>
             )}
           </div>
         ))}
