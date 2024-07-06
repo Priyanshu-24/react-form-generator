@@ -2,21 +2,37 @@ import { useContext, useState } from "react";
 
 import { FIELD_VALUES } from "../../utils/constant";
 import { FormContext } from "../../context/FormContext";
+import { validateField } from "../../utils/validations";
 
 const FormPreview = () => {
   const { fields } = useContext(FormContext);
   const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
 
-  const handleChange = (label, value) => {
+  const handleChange = (id, value) => {
     setFormData({
       ...formData,
-      [label]: value,
+      [id]: value,
     });
   };
 
-  console.log(formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = {};
 
-  const handleSubmit = () => {};
+    fields.forEach((field) => {
+      const error = validateField(field, formData[field?.id]);
+      if (error) {
+        newErrors[field?.id] = error;
+      }
+    });
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log(formData);
+    } else {
+      setErrors(newErrors);
+    }
+  };
 
   return (
     <div className="form-preview">
@@ -28,9 +44,12 @@ const FormPreview = () => {
             {field?.type === FIELD_VALUES?.TEXT && (
               <input
                 type="text"
-                value={formData[field?.label] || ""}
-                onChange={(e) => handleChange(field?.label, e.target.value)}
+                value={formData[field?.id] || ""}
+                onChange={(e) => handleChange(field?.id, e.target.value)}
               />
+            )}
+            {errors[field?.id] && (
+              <div className="error">{errors[field?.id]}</div>
             )}
           </div>
         ))}

@@ -16,7 +16,7 @@ export const FormProvider = ({ children }) => {
         type: FIELD_VALUES?.TEXT,
         label: "",
         options: [],
-        validations: {},
+        validation: {},
       },
     ]);
   };
