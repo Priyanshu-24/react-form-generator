@@ -10,6 +10,10 @@ const FormPreview = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (id, value) => {
+    setErrors({
+      ...errors,
+      [id]: "",
+    });
     setFormData({
       ...formData,
       [id]: value,
@@ -46,6 +50,19 @@ const FormPreview = () => {
                 type="text"
                 value={formData[field?.id] || ""}
                 onChange={(e) => handleChange(field?.id, e.target.value)}
+              />
+            )}
+            {field?.type === FIELD_VALUES?.TEXTAREA && (
+              <textarea
+                value={formData[field?.id] || ""}
+                onChange={(e) => handleChange(field?.id, e.target.value)}
+              />
+            )}
+            {field?.type === FIELD_VALUES?.CHECKBOX && (
+              <input
+                type="checkbox"
+                checked={!!formData[field?.id]}
+                onChange={(e) => handleChange(field?.id, e.target.checked)}
               />
             )}
             {errors[field?.id] && (

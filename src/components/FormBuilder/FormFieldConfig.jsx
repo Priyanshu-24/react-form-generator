@@ -39,6 +39,7 @@ const FormFieldConfig = ({ field, onRemove, onUpdate, index }) => {
         placeholder="Label"
       />
       <FormValidation
+        type={field?.type}
         validation={field?.validation}
         onChange={handleValidationChange}
       />
