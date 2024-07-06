@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 
 import { FIELD_VALUES } from "../../utils/constant";
 import { FormContext } from "../../context/FormContext";
+import toast from "react-hot-toast";
 import { validateField } from "../../utils/validations";
 
 const FormPreview = () => {
@@ -32,8 +33,9 @@ const FormPreview = () => {
     });
 
     if (Object.keys(newErrors).length === 0) {
-      console.log(formData);
+      toast.success("Form submitted successfully");
     } else {
+      toast.error("Form has some errors, please try again");
       setErrors(newErrors);
     }
   };
