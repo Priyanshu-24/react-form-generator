@@ -4,7 +4,7 @@ import FormPreview from "./components/FormPreview/FormPreview";
 const App = () => {
   return (
     <div>
-      <h1>Form Generator</h1>
+      <h1 className="main-header">Form Generator</h1>
       <div className="main-container">
         <FormBuilder />
         <FormPreview />

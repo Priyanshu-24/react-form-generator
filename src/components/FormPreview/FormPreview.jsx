@@ -46,7 +46,9 @@ const FormPreview = () => {
           <div key={field?.id} className="field-container">
             <label
               className={
-                field?.type === FIELD_VALUES?.CHECKBOX && "inline-label"
+                field?.type === FIELD_VALUES?.CHECKBOX
+                  ? "inline-label form-label"
+                  : "form-label"
               }
             >
               {field?.label}
@@ -73,6 +75,7 @@ const FormPreview = () => {
             )}
             {field?.type === FIELD_VALUES?.DROPDOWN && (
               <select
+                className="form-select"
                 value={formData[field?.id] || ""}
                 onChange={(e) => handleChange(field?.id, e.target.value)}
               >
