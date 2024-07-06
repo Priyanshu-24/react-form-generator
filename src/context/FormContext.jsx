@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 
 import { FIELD_VALUES } from "../utils/constant";
+import { v4 as uuidv4 } from "uuid";
 
 export const FormContext = createContext();
 
@@ -10,7 +11,13 @@ export const FormProvider = ({ children }) => {
   const addField = () => {
     setFields([
       ...fields,
-      { type: FIELD_VALUES?.TEXT, label: "", options: [], validations: {} },
+      {
+        id: uuidv4(),
+        type: FIELD_VALUES?.TEXT,
+        label: "",
+        options: [],
+        validations: {},
+      },
     ]);
   };
 

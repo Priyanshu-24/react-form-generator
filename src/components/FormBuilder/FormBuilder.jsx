@@ -6,8 +6,6 @@ const FormBuilder = () => {
   const { fields, addField, removeField, updateField } =
     useContext(FormContext);
 
-  console.log(fields);
-
   return (
     <div className="form-builder">
       <h2>Form Builder</h2>
@@ -18,7 +16,7 @@ const FormBuilder = () => {
         {fields.map((field, idx) => {
           return (
             <FormFieldConfig
-              key={idx}
+              key={field?.id}
               field={field}
               onUpdate={(newField) => updateField(idx, newField)}
               onRemove={() => removeField(idx)}
