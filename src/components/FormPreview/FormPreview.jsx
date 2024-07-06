@@ -70,7 +70,11 @@ const FormPreview = () => {
             )}
           </div>
         ))}
-        <button type="submit">Submit</button>
+        {fields?.length > 0 && (
+          <button className="submit-btn" type="submit">
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );

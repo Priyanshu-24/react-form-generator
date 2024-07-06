@@ -25,25 +25,29 @@ const FormFieldConfig = ({ field, onRemove, onUpdate, index }) => {
   return (
     <div className="field-config-container">
       <div className="field-config-label">Field - {index + 1}</div>
-      <select value={field?.type} onChange={handleTypeChange}>
-        {fieldTypes.map((type) => (
-          <option key={type.value} value={type.value}>
-            {type.label}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        value={field?.label}
-        onChange={handleLabelChange}
-        placeholder="Label"
-      />
+      <div className="field-config-option-container">
+        <select value={field?.type} onChange={handleTypeChange}>
+          {fieldTypes.map((type) => (
+            <option key={type.value} value={type.value}>
+              {type.label}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          value={field?.label}
+          onChange={handleLabelChange}
+          placeholder="Label"
+        />
+      </div>
       <FormValidation
         type={field?.type}
         validation={field?.validation}
         onChange={handleValidationChange}
       />
-      <button onClick={onRemove}>Remove</button>
+      <button className="remove-field-btn" onClick={onRemove}>
+        Remove Field
+      </button>
     </div>
   );
 };

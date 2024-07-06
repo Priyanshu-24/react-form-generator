@@ -40,7 +40,7 @@ const FormValidation = ({ validation, onChange, type }) => {
         />
       </div>
       {(type === FIELD_VALUES?.TEXT || type === FIELD_VALUES?.TEXTAREA) && (
-        <>
+        <div className="min-max-container">
           <div>
             <label>Min Length</label>
             <input
@@ -66,7 +66,7 @@ const FormValidation = ({ validation, onChange, type }) => {
               onChange={handlePatternChange}
             />
           </div>
-        </>
+        </div>
       )}
     </div>
   );

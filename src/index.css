@@ -27,11 +27,13 @@ h2 {
   border-right: 1px solid #000000;
 }
 
-.add-field-btn {
+.add-field-btn,
+.submit-btn,
+.remove-field-btn {
   background-color: #157ff1;
   color: #fff;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -59,4 +61,39 @@ h2 {
 
 .validation-box {
   display: flex;
+  align-items: center;
+}
+
+.field-config-option-container {
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+textarea {
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.min-max-container {
+  display: flex;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.remove-field-btn {
+  background-color: rgb(239, 77, 77);
+  padding: 0.3rem 1rem;
 }
